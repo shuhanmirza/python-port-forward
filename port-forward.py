@@ -37,6 +37,8 @@ def parse(setup):
         # skip comment line
         if line.startswith('#'):
             continue
+        elif line.startswith(' '):
+            continue
 
         parts = line.split()
         settings.append((int(parts[0]), parts[1], int(parts[2])))
