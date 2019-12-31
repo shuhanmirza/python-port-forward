@@ -16,6 +16,7 @@ sudo python port-forward.py
 
 ## Configuration:
 ```
+Rename port-forward-sample.config to port-forward.config
 Add to the config file port-forward.config lines with contents as follows:
 
 <local incoming port> <dest hostname> <dest port>
