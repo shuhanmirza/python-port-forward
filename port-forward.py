@@ -20,6 +20,7 @@ import socket
 import sys
 import thread
 import time
+import os
 
 def main(setup, error):
     # open file for error messages
@@ -29,7 +30,14 @@ def main(setup, error):
         thread.start_new_thread(server, settings)
     # wait for <ctrl-c>
     while True:
-       time.sleep(60)
+        logSize = os.path.getsize('error.log')
+        
+        if logSize > 9999999:
+            os.remove('error.log')
+            os.system('touch error.log')
+            open('error.log', 'w')
+        
+        time.sleep(60)
 
 def parse(setup):
     settings = list()
